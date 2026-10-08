@@ -35,6 +35,11 @@ I enjoy building projects that challenge my technical skillset and solve problem
 a location and what they're looking for, and get ranked matches on a map, with a source link
 for every detail.
 
+<details>
+<summary><b>Architecture details</b></summary>
+
+<br>
+
 **How it works:** Church data is collected ahead of time in the background, so searches are
 fast database lookups.
 
@@ -49,6 +54,7 @@ Discover → Fetch → Extract → Match & Rank → Serve → Map + cards
    ministries. Each detail gets a confidence score and a link to its source.
 4. **Match & Rank:** Scores each church against what the user is looking for.
 5. **Serve:** An API returns results to the web app, which shows them on a map and as cards.
+</details>
 
 **My role:** On the ingestion team, I built the "polite" part of the Fetch stage. Our crawler
 checks each site's robots.txt rules, identifies itself clearly, sends one request at a time with
