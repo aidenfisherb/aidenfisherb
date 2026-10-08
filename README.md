@@ -28,8 +28,35 @@ I enjoy building projects that challenge my technical skillset and solve problem
 
 **What's next** Saving rounds and courses to a database, finishing course creation, user profiles, polishing UI, publishing app.
 
-# GLOO Hackathon 2026
+### ⛪ Church Buddy (2026 Gloo Hackathon)
+`TypeScript` · `React` · `Leaflet` · `PostgreSQL` · Repo private
 
+**What it is:** A team app that helps college students find a church in a new town. Users enter
+a location and what they're looking for, and get ranked matches on a map, with a source link
+for every detail.
+
+**How it works:** Church data is collected ahead of time in the background, so searches are
+fast database lookups.
+
+```
+Discover → Fetch → Extract → Match & Rank → Serve → Map + cards
+```
+
+1. **Discover:** Finds churches near a town using OpenStreetMap, Google Places, and church
+   directories, then removes duplicates.
+2. **Fetch:** Downloads each church's website, following each site's crawling rules.
+3. **Extract:** An LLM pulls out details like denomination, service times, and college
+   ministries. Each detail gets a confidence score and a link to its source.
+4. **Match & Rank:** Scores each church against what the user is looking for.
+5. **Serve:** An API returns results to the web app, which shows them on a map and as cards.
+
+**My role:** On the ingestion team, I built the "polite" part of the Fetch stage. Our crawler
+checks each site's robots.txt rules, identifies itself clearly, sends one request at a time with
+a pause between them, and skips sites that ask for unreasonable delays.
+
+**How AI was used:** Heavily. All of the code was written with AI, which let our team
+move fast during the hackathon, try more ideas, and test every part of the app. Our role became
+deciding what to build, prompting Claude Code or Codex, and then reviewing what it produced.
 
 ## Skills 
 Skills are reusable instruction patterns that teach a Claude instance how to complete a specific task well. I believe skills are an easy way to unlock AI's true power for all backgrounds - giving developers the ability to connect AI to real software and data, and non-technical people an easy way to hand off repetitive tasks. 
@@ -58,7 +85,7 @@ flowchart LR
    matters, with sources. It can also create a Word doc, an Excel due-diligence template,
    or a PowerPoint one-pager.
 
-   <details>
+<details>
 <summary><b>Architecture details</b></summary>
 
 <br>
