@@ -4,7 +4,67 @@ I enjoy building projects that challenge my technical skillset and solve problem
 
 ## Professional Projects 
 
-# Job Board for Atlanta Ventures
+### 💼 Portfolio Company Job Board (Atlanta Ventures)
+
+**Why I built it:** Atlanta Ventures' previous website listed open jobs at its portfolio companies in static HTML. That worked for a while, but jobs close, and updating the website by hand every time was a hassle, so many expired job links stayed up. For the launch of the new Atlanta Ventures website, I built a process that keeps the job board current on its own: finding new openings, adding them to the site, and removing them once they close.
+
+**What it does:** Automatically finds open jobs on Atlanta Ventures' portfolio companies' career pages, filters out irrelevant ones, and keeps the job board on atlantaventures.com up to date, adding new jobs and removing filled ones without anyone touching the website. Adding a new portfolio company is just a new row in a Google Sheet with a link to its careers page.
+
+**How it works:**
+
+```mermaid
+flowchart LR
+    A[Railway<br/>scheduled trigger] --> B[Scraper]
+    S[Google Sheet buttons] --> B
+    B -->|Raw job listings| C[Claude filter]
+    C -->|Kept / skipped| D[(Google Sheet)]
+    D -->|New & expired jobs| E[Website job board]
+    E --> F[Slack summary]
+```
+
+1. **Trigger:** A scheduled task on Railway runs weekly. The team can also start a run manually from a button in the Google Sheet.
+2. **Scrape:** For each company in the Sheet, it pulls jobs from their careers page. It supports the major hiring platforms (Greenhouse, Lever, Ashby, and others), plus Google Docs, PDFs, and regular web pages.
+3. **Filter:** Claude reviews each job, decides whether it belongs on the board, and categorizes it.
+4. **Store:** Jobs are saved to a Google Sheet, which acts as the database. Rejected jobs go to a separate tab so the team can review them.
+5. **Sync:** New jobs are posted to the website, and jobs no longer listed are removed.
+6. **Report:** A summary of each run, including any errors, is posted to Slack.
+
+<details>
+<summary><b>Architecture details</b></summary>
+
+<br>
+
+1. **The pieces and what each one does:**
+   - **Google Sheet:** the database (Companies, Jobs, and Skipped tabs) and the control panel
+   - **Apps Script:** adds a menu to the Sheet so non-technical staff can approve, add, or
+     remove jobs, or start a run, without touching code
+   - **Google Cloud service account:** a bot account is attached to the google sheet that lets the Python code read and write
+     the Sheet
+   - **Railway:** hosts the webhooks that the Sheet's manual run buttons call, and runs the weekly scrape.
+   - **Python:** the scrapers, filtering, syncing, and alerts
+   - **Claude API:** filters and categorizes jobs, and reads jobs from pages that don't use
+     a standard hiring platform
+   - **WordPress API:** posts and removes jobs on the live website
+   - **Slack:** run summaries and alerts
+
+2. **Built to fail safely.** If a scraper breaks, the system stops finding new jobs but never
+   deletes real ones. It can tell "this company has no open jobs" apart from "the scraper
+   broke," and only removes jobs in the first case.
+
+3. **Clear alerts.** It detects when an entire hiring platform breaks at once (usually a sign
+   the platform changed its API) and sends a distinct Slack alert for each type of failure,
+   so the fix is obvious.
+
+4. **Designed to be handed off.** Before leaving, I transferred every account to a
+   non-technical owner and wrote a handoff guide. A Claude bot in Slack fixes low-risk issues
+   on its own and refuses to fix anything risky (ex: core logic that pushes jobs to the website).
+
+</details>
+
+**How AI was used:** <fill in>
+
+**Tech:** Python, Claude API, Google Sheets + Apps Script, Google Cloud, Railway, WordPress
+API, Slack
 
 # Email Metrics Tracker for Atlanta Ventures
 
