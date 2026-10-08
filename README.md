@@ -14,7 +14,22 @@ I enjoy building projects that challenge my technical skillset and solve problem
 
 # AidDisc
 
+### 🥏 AidDisc (In progress)
+`Python` · `NiceGUI` · `Leaflet` · [Repo](https://github.com/aidenfisherb/AidDisc)
+
+**What it is:** A disc golf app for tracking rounds and measuring throws.
+- **Throw distance:** Uses the phone's GPS to measure how far you threw. Because phone GPS
+  is noisy, it takes several location readings over 5 seconds, discards the least accurate,
+  and averages the rest before calculating distance.
+- **Scorecard:** Tracks your score hole by hole and blocks impossible scores.
+- **Course catalog:** Browse courses and start a round. <Currently uses sample data.>
+
+**How AI was used:** None in the code. A friend and I are building this project by hand to strengthen our computer science fundamentals and have true ownership over everything we write. AI is being used as a search engine, while we maintain ownership over the design choices and features. 
+
+**What's next** Saving rounds and courses to a database, finishing course creation, user profiles, polishing UI, publishing app.
+
 # GLOO Hackathon 2026
+
 
 ## Skills 
 Skills are reusable instruction patterns that teach a Claude instance how to complete a specific task well. I believe skills are an easy way to unlock AI's true power for all backgrounds - giving developers the ability to connect AI to real software and data, and non-technical people an easy way to hand off repetitive tasks. 
