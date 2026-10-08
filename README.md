@@ -68,7 +68,7 @@ deciding what to build, prompting Claude Code or Codex, and then reviewing what 
 Skills are reusable instruction patterns that teach a Claude instance how to complete a specific task well. I believe skills are an easy way to unlock AI's true power for all backgrounds - giving developers the ability to connect AI to real software and data, and non-technical people an easy way to hand off repetitive tasks. 
 
 # Claude Research Process for Atlanta Ventures
-Why I built it: I was tasked with finding parts of the Atlanta Ventures team's work that could be improved with AI. The team had many ideas, and these of these ideas pointed to the same concept: research. I combined many of their ideas into a singular process that people people who weren't experienced with AI could use at any stage of their ideas, whether they had a vague interest, a specific idea they wanted to explore, or a finished research report that they wanted to make sense of.
+**Why I built it:** I was tasked with finding parts of the Atlanta Ventures team's work that could be improved with AI. The team had many ideas, and these of these ideas pointed to the same concept: research. I combined many of their ideas into a singular process that people people who weren't experienced with AI could use at any stage of their ideas, whether they had a vague interest, a specific idea they wanted to explore, or a finished research report that they wanted to make sense of.
 
 **How it works:**
 
@@ -133,9 +133,39 @@ flowchart LR
 
 **Tech:** Claude skills, Python, Gemini Deep Research
 
+### 📝 Meeting Analyzer
 
-# meeting analyzer (maybe scrap?)
+**Why I built it:** I wanted meeting summaries without paying for a dedicated note-taking tool,
+so I built my own in Claude Cowork. I record the meeting with Wispr Flow (a voice-to-text app),
+paste the transcript into Claude, and this skill does the rest.
 
-# teaching 
+**What it does:** Turns a raw, messy transcript into two short sections:
+- **Talking Points:** the 2–4 main topics the meeting covered
+- **Action Steps:** concrete next steps, each starting with a verb ("Draft…", "Meet with…",
+  "Decide…"), including ones implied but not stated.
 
-# email writer
+### 🎓 Teaching
+
+**Why I built it:** Textbooks and generic AI explanations often didn't click for me. I wanted
+a tutor that explains things the way I actually learn, and keeps getting better at it.
+
+**What it does:** A personal tutor for homework and studying, with three modes I switch between
+in plain words:
+- **Learn:** a full explanation, starting with the big-picture answer, defining every term and
+  acronym, and explaining why each wrong answer is wrong
+- **Method:** teaches me how to solve a problem using metaphors, something I have noted as being useful in teaching myself new things
+- **Speed:** just the answers, for when I'm short on time
+
+**Gets smarter over time:** While it teaches, it quietly notes what works and what doesn't
+(an explanation that lands, a correction I make) and saves it to a learning profile. Each
+session starts from that profile, so explanations get more tailored the more I use it. 
+
+### ✉️ Email Writer (In progress)
+
+**Why I'm building it:** AI-written emails often sound generic and nothing like me. I want a
+skill that drafts emails in my own voice, and is able to switch tone based on who I am emailing. I email my professors differently than I do my classmates.
+
+**The plan:** Build the skill from real emails I've written, so it learns my tone, structure,
+and phrasing instead of writing from a generic template. Troubleshoot until I feel confident in it.
+
+
