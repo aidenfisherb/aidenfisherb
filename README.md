@@ -2,6 +2,8 @@
 
 I enjoy building projects that challenge my technical skillset and solve problems that I see around me. I fully believe in the power of AI, and I am passionate about using it to both increase productivity and to enable new capabilities in both business and software development that would have been impossible a few years back. AI is the most powerful tool for a developer today, but I believe it's full potential is unlocked by having a complete technical skillset with deep understanding of Computer Science and LLM algorithms. 
 
+---
+
 ## Professional Projects 
 
 ### 💼 Portfolio Company Job Board (Atlanta Ventures)
@@ -61,18 +63,112 @@ flowchart LR
 
 </details>
 
-**How AI was used:** <fill in>
+**How AI was used:** For everything. All of the code was written with AI, and Claude is also the brain of the system, deciding which jobs belong on the board and reading jobs from pages that don't follow a standard format. I owned the system design and architecture.
 
 **Tech:** Python, Claude API, Google Sheets + Apps Script, Google Cloud, Railway, WordPress
 API, Slack
 
-# Email Metrics Tracker for Atlanta Ventures
+---
+
+### 📊 Portfolio Metrics (Atlanta Ventures)
+`Google Apps Script` · `Claude API` · `Google Sheets` · Repo private
+
+**Why I built it:** Founder updates were spread across inboxes, and the data in them was hard to see over time. I built this to centralize those updates and turn their numbers into charts. I set up a dedicated email account that's included on every founder update, connected it to a Google Sheet, and had it update itself weekly.
+
+**What it does:** Reads founder update emails, pulls out key metrics (like revenue, customers,
+and churn), and turns them into charts for each portfolio company in a Google Sheet.
+
+**How it works:**
+
+```
+Founder emails → Relevance check → Metric extraction → Google Sheet → Charts per company
+```
+
+1. **Collect:** Every Monday, it checks the dedicated inbox for new update emails from each portfolio company.
+2. **Filter:** Claude checks whether each email actually contains metrics.
+3. **Extract:** Claude pulls out the numbers that company tracks, and each row links back to
+   the email it came from.
+4. **Display:** Each company gets its own tab with a chart for every metric and a date filter.
+
+The team manages everything from a menu in the Sheet: run a sync, add a new company (Claude suggests which metrics to track from its past emails), or add and remove metrics. No code outside of AppScript.
+
+---
+
+### 🔬 Claude Research Process for Atlanta Ventures
+
+**Why I built it:** I was tasked with finding parts of the Atlanta Ventures team's work that could be improved with AI. The team had many ideas, and these of these ideas pointed to the same concept: research. I combined many of their ideas into a singular process that people people who weren't experienced with AI could use at any stage of their ideas, whether they had a vague interest, a specific idea they wanted to explore, or a finished research report that they wanted to make sense of.
+
+**How it works:**
+
+```mermaid
+flowchart LR
+    A[Vague interest] --> B[Brainstorm]
+    B -->|Idea card| C[Prompt Generation]
+    C -->|Research prompt| D[Gemini Deep Research]
+    D -->|Long report| E[Research Summarizer]
+    E --> F[Summary / Word doc]
+    E --> G[Excel DD template]
+    E --> H[PowerPoint one-pager]
+```
+
+1. **Brainstorm** helps the user turn a vague interest into a specific, well-defined idea worth researching.
+2. **Prompt Generation** writes a detailed research prompt for that idea,
+   company, market, or person, so the user doesn't need to know how to write one.
+3. **Gemini Deep Research** the user pastes the prompt into Gemini, which searches the web
+   and returns a long, detailed report.
+4. **Research Summarizer** turns that report into a short summary of what
+   matters, with sources. It can also create a Word doc, an Excel due-diligence template,
+   or a PowerPoint one-pager.
+
+<details>
+<summary><b>Architecture details</b></summary>
+
+<br>
+
+1. **Built on Claude.** The pipeline runs as three Claude skills inside Claude Cowork. Skills are
+   packaged as `.skill` files and installed on each team member's laptop, so everyone runs the
+   same version. It requires:
+   - A Claude subscription with Cowork access
+   - **Connectors:** web search (to verify companies and fill in missing details) and Google
+     Drive (to save finished files where the team can find them)
+   - A Gemini account for the Deep Research step, which the user runs manually
+
+2. **Each skill figures out what the user needs.** Before doing anything, each skill
+   detects where the user is and follows only the instructions for that case.
+   - *Brainstorm:* no direction, one theme, many themes, or a specific idea
+   - *Prompt Generation:* researching an opportunity, company, industry, or person, and whether
+     it's for an investment decision or general exploration
+   - *Research Summarizer:* a general summary, an investment due-diligence review, or a one-pager
+
+3. **The skills work together.** Each skill's output is shaped to be the next
+   skill's input, so nothing gets lost between steps. For example, Prompt Generation asks Gemini
+   for exactly the details the Summarizer needs to fill its tables.
+
+4. **Custom templates with guaranteed formatting.** I built new templates for the team's most
+   common use cases, and Python scripts fill them in so every file comes out the same way.
+   - **Due diligence workbook (Excel)** takes an investment research report and
+     fills a standardized due-diligence review, covering the company, team, market, competitors,
+     and risks.
+   - **One-pager (PowerPoint)** a single slide that summarizes an idea or company, which can be
+     generated from the Summarizer or straight from Brainstorm.
+   - **Market brief (Excel)** a quick snapshot of a market, created during Brainstorm.
+
+5. **Built-in guardrails.** The Summarizer must trace every claim back to the research, and
+   checks names with web search instead of guessing.
+
+</details>
+
+**How I used AI in development:** I was responsible for gathering the teams needs and designing the process, as well as organizing demos and meetings to get feedback on my (many) prototypes. Claude Co-Work was my primary tool in this process, behaving like a tutor and a developer. It helped me work through and validate my ideas, performed edits on the skill files, and wrote the Python scripts based on my direction. I completely owned the system design and architecture.
+
+**Tech:** Claude skills, Python, Gemini Deep Research
+
+---
 
 ## Passion Projects
 
-# Canvas Digest
+### 📚 Canvas Digest
 
-# AidDisc
+---
 
 ### 🥏 AidDisc (In progress)
 `Python` · `NiceGUI` · `Leaflet` · [Repo](https://github.com/aidenfisherb/AidDisc)
@@ -86,7 +182,9 @@ API, Slack
 
 **How AI was used:** None in the code. A friend and I are building this project by hand to strengthen our computer science fundamentals and have true ownership over everything we write. AI is being used as a search engine, while we maintain ownership over the design choices and features. 
 
-**What's next** Saving rounds and courses to a database, finishing course creation, user profiles, polishing UI, publishing app.
+**What's next:** Saving rounds and courses to a database, finishing course creation, user profiles, polishing UI, publishing app.
+
+---
 
 ### ⛪ Church Buddy (2026 Gloo Hackathon)
 `TypeScript` · `React` · `Leaflet` · `PostgreSQL` · Repo private
@@ -114,6 +212,7 @@ Discover → Fetch → Extract → Match & Rank → Serve → Map + cards
    ministries. Each detail gets a confidence score and a link to its source.
 4. **Match & Rank:** Scores each church against what the user is looking for.
 5. **Serve:** An API returns results to the web app, which shows them on a map and as cards.
+
 </details>
 
 **My role:** On the ingestion team, I built the "polite" part of the Fetch stage. Our crawler
@@ -124,74 +223,11 @@ a pause between them, and skips sites that ask for unreasonable delays.
 move fast during the hackathon, try more ideas, and test every part of the app. Our role became
 deciding what to build, prompting Claude Code or Codex, and then reviewing what it produced.
 
+---
+
 ## Skills 
+
 Skills are reusable instruction patterns that teach a Claude instance how to complete a specific task well. I believe skills are an easy way to unlock AI's true power for all backgrounds - giving developers the ability to connect AI to real software and data, and non-technical people an easy way to hand off repetitive tasks. 
-
-# Claude Research Process for Atlanta Ventures
-**Why I built it:** I was tasked with finding parts of the Atlanta Ventures team's work that could be improved with AI. The team had many ideas, and these of these ideas pointed to the same concept: research. I combined many of their ideas into a singular process that people people who weren't experienced with AI could use at any stage of their ideas, whether they had a vague interest, a specific idea they wanted to explore, or a finished research report that they wanted to make sense of.
-
-**How it works:**
-
-```mermaid
-flowchart LR
-    A[Vague interest] --> B[Brainstorm]
-    B -->|Idea card| C[Prompt Generation]
-    C -->|Research prompt| D[Gemini Deep Research]
-    D -->|Long report| E[Research Summarizer]
-    E --> F[Summary / Word doc]
-    E --> G[Excel DD template]
-    E --> H[PowerPoint one-pager]
-```
-1. **Brainstorm** helps the user turn a vague interest into a specific, well-defined idea worth researching.
-2. **Prompt Generation** writes a detailed research prompt for that idea,
-   company, market, or person, so the user doesn't need to know how to write one.
-3. **Gemini Deep Research** the user pastes the prompt into Gemini, which searches the web
-   and returns a long, detailed report.
-4. **Research Summarizer** turns that report into a short summary of what
-   matters, with sources. It can also create a Word doc, an Excel due-diligence template,
-   or a PowerPoint one-pager.
-
-<details>
-<summary><b>Architecture details</b></summary>
-
-<br>
-
-1. **Built on Claude** The pipeline runs as three Claude skills inside Claude Cowork. Skills are
-   packaged as `.skill` files and installed on each team member's laptop, so everyone runs the
-   same version. It requires:
-   - A Claude subscription with Cowork access
-   - **Connectors:** web search (to verify companies and fill in missing details) and Google
-     Drive (to save finished files where the team can find them)
-   - A Gemini account for the Deep Research step, which the user runs manually
-
-2. **Each skill figures out what the user needs** Before doing anything, each skill
-   detects where the user is and follows only the instructions for that case.
-   - *Brainstorm:* no direction, one theme, many themes, or a specific idea
-   - *Prompt Generation:* researching an opportunity, company, industry, or person, and whether
-     it's for an investment decision or general exploration
-   - *Research Summarizer:* a general summary, an investment due-diligence review, or a one-pager
-
-3. **The skills work together** Each skill's output is shaped to be the next
-   skill's input, so nothing gets lost between steps. For example, Prompt Generation asks Gemini
-   for exactly the details the Summarizer needs to fill its tables.
-
-4. **Custom templates with guaranteed formatting.** I built new templates for the team's most
-   common use cases, and Python scripts fill them in so every file comes out the same way.
-   - **Due diligence workbook (Excel)** takes an investment research report and
-     fills a standardized due-diligence review, covering the company, team, market, competitors,
-     and risks.
-   - **One-pager (PowerPoint)** a single slide that summarizes an idea or company, which can be
-     generated from the Summarizer or straight from Brainstorm.
-   - **Market brief (Excel)** a quick snapshot of a market, created during Brainstorm.
-
-5. **Built-in guardrails** The Summarizer must trace every claim back to the research, and
-   checks names with web search instead of guessing.
-
-</details>
-
-**How I used AI in development** I was responsible for gathering the teams needs and designing the process, as well as organizing demos and meetings to get feedback on my (many) prototypes. Claude Co-Work was my primary tool in this process, behaving like a tutor and a developer. It helped me work through and validate my ideas, performed edits on the skill files, and wrote the Python scripts based on my direction. I completely owned the system design and architecture.
-
-**Tech:** Claude skills, Python, Gemini Deep Research
 
 ### 📝 Meeting Analyzer
 
@@ -203,6 +239,8 @@ paste the transcript into Claude, and this skill does the rest.
 - **Talking Points:** the 2–4 main topics the meeting covered
 - **Action Steps:** concrete next steps, each starting with a verb ("Draft…", "Meet with…",
   "Decide…"), including ones implied but not stated.
+
+---
 
 ### 🎓 Teaching
 
@@ -220,6 +258,8 @@ in plain words:
 (an explanation that lands, a correction I make) and saves it to a learning profile. Each
 session starts from that profile, so explanations get more tailored the more I use it. 
 
+---
+
 ### ✉️ Email Writer (In progress)
 
 **Why I'm building it:** AI-written emails often sound generic and nothing like me. I want a
@@ -227,5 +267,3 @@ skill that drafts emails in my own voice, and is able to switch tone based on wh
 
 **The plan:** Build the skill from real emails I've written, so it learns my tone, structure,
 and phrasing instead of writing from a generic template. Troubleshoot until I feel confident in it.
-
-
