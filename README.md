@@ -166,9 +166,53 @@ flowchart LR
 
 ## Passion Projects
 
-### 📚 Canvas Digest
+### 📚 Canvas Digest (In progress)
+`Python` · `GitHub Actions` · `GitHub Pages` · `Gemini API` · [Repo](https://github.com/aidenfisherb/School-Assignments)
 
----
+**Why I built it:** Canvas is used at many college, and it buries what's actually due among things that don't need action, and some due dates only exist in the syllabus. I wanted to centralize my work in one place.
+
+**What it does:** Every weekday morning, it pulls my assignments from Canvas, drops anything already submitted or marked done, and sends me a phone notification with a link to a simple dashboard. It also reads my syllabi to catch due dates Canvas is missing.
+
+**How it works:**
+
+```mermaid
+flowchart LR
+    A[GitHub Actions<br/>weekday schedule] --> B[Canvas API]
+    A --> C[Syllabus PDFs]
+    C -->|Gemini| D[Extracted due dates]
+    B --> E[Filter & merge]
+    D --> E
+    E --> F[Dashboard<br/>GitHub Pages]
+    E --> G[Phone push<br/>ntfy.sh]
+```
+
+1. **Collect:** Pulls assignments and submission status from my favorited Canvas courses.
+2. **Read syllabi:** Gemini extracts graded deadlines from uploaded syllabus files.
+3. **Filter & merge:** Drops finished work, combines Canvas and syllabus items, and sorts them
+   into Overdue, Due Today, and Coming Up.
+4. **Deliver:** Publishes the dashboard and sends a short push notification.
+
+<details>
+<summary><b>Architecture details</b></summary>
+
+<br>
+
+1. **Canvas is the source of truth.** Syllabus items fill gaps but never silently override Canvas. If the two list different dates for the same assignment, both are shown and flagged "Conflicting."
+
+2. **Extract once, cache forever.** Each syllabus is sent to Gemini only once, and the result is saved next to the file. Replacing the file triggers a new extraction, and I can fix any wrong dates by editing the saved file.
+
+3. **Replaced a regex parser with AI.** My first version used pattern matching, which turned a 13-page syllabus into 40 mostly junk items. Gemini reads the PDF directly and returned 9 items with every date correct.
+
+4. **Reliable on free models.** Request timeouts, retries, and a fallback chain of free Gemini models keep it running when a model is slow or overloaded.
+
+5. **Tested and private.** 45 tests run on every push without any network calls, and all keys live in GitHub's encrypted secrets, never in the code or on the public page.
+
+</details>
+
+**How AI was used:** For the whole thing. All of the code was written with AI, and the app
+uses a Gemini API key to extract due dates from each syllabus once.
+
+**Still to do:** Suggesting a plan for when to work on each assignment, handling data stored in obscure places (non assignment-tab), eventually make it easily usable by other students who don't have GitHub.
 
 ### 🥏 AidDisc (In progress)
 `Python` · `NiceGUI` · `Leaflet` · [Repo](https://github.com/aidenfisherb/AidDisc)
