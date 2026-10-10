@@ -97,7 +97,7 @@ The team manages everything from a menu in the Sheet: run a sync, add a new comp
 
 ## Passion Projects
 
-### 📚 Canvas Digest (In progress)
+### Canvas Digest (In progress)
 `Python` · `GitHub Actions` · `GitHub Pages` · `Gemini API` · [Repo](https://github.com/aidenfisherb/School-Assignments)
 
 **Why I built it:** Canvas is used at many colleges, and it buries what's actually due among things that don't need action, and some due dates only exist in the syllabus. I wanted to centralize my work in one place.
@@ -147,7 +147,7 @@ uses a Gemini API key to extract due dates from each syllabus once.
 
 ---
 
-### 🥏 AidDisc (In progress)
+### AidDisc (In progress)
 `Python` · `NiceGUI` · `Leaflet` · [Repo](https://github.com/aidenfisherb/AidDisc)
 
 **What it is:** A disc golf app for tracking rounds and measuring throws.
@@ -206,7 +206,7 @@ deciding what to build, prompting Claude Code or Codex, and then reviewing what 
 
 Skills are reusable instruction patterns that teach a Claude instance how to complete a specific task well. I believe skills are an easy way to unlock AI's true power for all backgrounds - giving developers the ability to connect AI to real software and data, and non-technical people an easy way to hand off repetitive tasks. 
 
-### 🔬 Claude Research Process for Atlanta Ventures
+### Claude Research Process for Atlanta Ventures
 
 **Why I built it:** I was tasked with finding parts of the Atlanta Ventures team's work that could be improved with AI. The team had many ideas, and many of these ideas pointed to the same concept: research. I combined many of their ideas into a singular process that people who weren't experienced with AI could use at any stage of their ideas, whether they had a vague interest, a specific idea they wanted to explore, or a finished research report that they wanted to make sense of.
 
@@ -276,7 +276,7 @@ flowchart LR
 
 ---
 
-### 📝 Meeting Analyzer
+### Meeting Analyzer
 
 **Why I built it:** I wanted meeting summaries without paying for a dedicated note-taking tool,
 so I built my own in Claude Cowork. I record the meeting with Wispr Flow (a voice-to-text app),
@@ -289,7 +289,7 @@ paste the transcript into Claude, and this skill does the rest.
 
 ---
 
-### 🎓 Teaching
+### Teaching
 
 **Why I built it:** Textbooks and generic AI explanations often didn't click for me. I wanted
 a tutor that explains things the way I actually learn, and keeps getting better at it.
