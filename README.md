@@ -163,7 +163,7 @@ uses a Gemini API key to extract due dates from each syllabus once.
 
 ---
 
-### ⛪ Church Buddy (2026 Gloo Hackathon)
+### Church Buddy (2026 Gloo Hackathon)
 `TypeScript` · `React` · `Leaflet` · `PostgreSQL` · Repo private
 
 **What it is:** A team app that helps college students find a church in a new town. Users enter
