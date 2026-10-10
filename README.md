@@ -312,5 +312,4 @@ session starts from that profile, so explanations get more tailored the more I u
 **Why I'm building it:** AI-written emails often sound generic and nothing like me. I want a
 skill that drafts emails in my own voice, and is able to switch tone based on who I am emailing. I email my professors differently than I do my classmates.
 
-**The plan:** Build the skill from real emails I've written, so it learns my tone, structure,
-and phrasing instead of writing from a generic template. Troubleshoot until I feel confident in it.
+**The plan:** Feed in real emails to Claude Co-work and give it a chance to analyze my tone. Make it able to adjust to my different styles of writing based on who I am writing to - ex: I talk to my professors differently than my classmates, the skill should be able to communicate like me in both scenarios.
