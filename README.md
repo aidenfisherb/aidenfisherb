@@ -9,7 +9,7 @@ I enjoy building projects that challenge my technical skillset and solve problem
 ### Portfolio Company Job Board (Atlanta Ventures)
 `Python` · `Claude API` · `Google Sheets` · `Apps Script` · `Google Cloud` · `Railway` · `WordPress API` · `Slack`
 
-**Why I built it:** Atlanta Ventures' previous website listed open jobs at its portfolio companies in static HTML. That worked for a time, but removing closed jobs by hand is tedious, so the website began getting filled up with expired openings. For the launch of the new Atlanta Ventures website, I built a process that keeps the job board current on its own: finding new openings, adding them to the site, and removing them once they close.
+**Why I built it:** Atlanta Ventures' previous website listed open jobs at its portfolio companies (which are companies that they either invested in or co-founded) in static HTML. That worked for a time, but removing closed jobs by hand is tedious, so the website began getting filled up with expired openings. For the launch of the new Atlanta Ventures website, I built a process that keeps the job board current on its own: finding new openings, adding them to the site, and removing them once they close.
 
 **What it does:** Automatically finds open jobs on Atlanta Ventures' portfolio companies' career pages, filters out irrelevant ones, and keeps the job board on atlantaventures.com up to date, adding new jobs and removing filled ones without anyone touching the website. Adding a new portfolio company is now just a new row in a Google Sheet with a link to its careers page.
 
@@ -74,7 +74,7 @@ flowchart LR
 ### Portfolio Metrics (Atlanta Ventures)
 `Google Apps Script` · `Claude API` · `Google Sheets`
 
-**Why I built it:** Founder updates were spread across multiple inboxes and the data in them was hard to see over time. I built a process to centralize those updates and turn their numbers into charts. I set up a dedicated email account that's included on every founder update, connected it to a Google Sheet, and had it update itself weekly.
+**Why I built it:** Founder (who are owners of the businesses that we invested in or co-founded) updates were spread across multiple inboxes and the data in them was hard to see over time. I built a process to centralize those updates and turn their numbers into charts. I set up a dedicated email account that's included on every founder update, connected it to a Google Sheet, and had it update itself weekly.
 
 **What it does:** Reads founder update emails, pulls out key metrics (like revenue, customers,
 and churn), and turns them into charts for each portfolio company in a Google Sheet.
@@ -207,6 +207,7 @@ deciding what to build, prompting Claude Code or Codex, and then reviewing what 
 Skills are reusable instruction patterns that teach a Claude instance how to complete a specific task well. I believe skills are an easy way to unlock AI's true power for all backgrounds - giving developers the ability to connect AI to real software and data, and non-technical people an easy way to hand off repetitive tasks. 
 
 ### Claude Research Process for Atlanta Ventures
+`Claude skills` · `Python`  · `Gemini Deep Research`
 
 **Why I built it:** I was tasked with finding parts of the Atlanta Ventures team's work that could be improved with AI. The team had many ideas, and many of these ideas pointed to the same concept: research. I combined many of their ideas into a singular process that people who weren't experienced with AI could use at any stage of their ideas, whether they had a vague interest, a specific idea they wanted to explore, or a finished research report that they wanted to make sense of.
 
@@ -272,7 +273,6 @@ flowchart LR
 
 **How I used AI in development:** I was responsible for gathering the team's needs and designing the process, as well as organizing demos and meetings to get feedback on my (many) prototypes. Claude Co-Work was my primary tool in this process, behaving like a tutor and a developer. It helped me work through and validate my ideas, performed edits on the skill files, and wrote the Python scripts based on my direction. I completely owned the system design and architecture.
 
-**Tech:** Claude skills, Python, Gemini Deep Research
 
 ---
 
@@ -307,7 +307,7 @@ session starts from that profile, so explanations get more tailored the more I u
 
 ---
 
-### ✉️ Email Writer (In progress)
+### Email Writer (In progress)
 
 **Why I'm building it:** AI-written emails often sound generic and nothing like me. I want a
 skill that drafts emails in my own voice, and is able to switch tone based on who I am emailing. I email my professors differently than I do my classmates.
